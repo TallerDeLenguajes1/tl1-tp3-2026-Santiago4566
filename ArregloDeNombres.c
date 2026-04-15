@@ -1,7 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-int BuscarNombre(char *nombres[],char *palabra)
+void BuscarNombrePorID(char *nombre[])
+{
+    int id;
+    printf("\nIngrese una ID para buscar");
+    scanf("%d",&id);
+    if (id<1 || id >5)
+    {
+        printf("No se encontró el valor buscado");
+    }else
+    {
+     printf("\nNombre encontrado: %s",nombre[id-1]);   
+    }
+    
+}int BuscarNombrePorPalabra(char *nombres[],char *palabra)
 {
     for (int i = 0; i < 5; i++)
     {
@@ -42,14 +55,15 @@ int main()
         strcpy(nombres[i],buff);
     }
     MostrarPersonas(nombres);
-    printf("\ningrese una palabra para buscar un nombre: ");
+    BuscarNombrePorID(nombres);
+    printf("\ningrese una palabra para buscar: ");
     scanf("%s",palabra);
-    if (BuscarNombre(nombres,palabra)!=-1)
+    if (BuscarNombrePorPalabra(nombres,palabra)!=-1)
     {
-        printf("\nNombre encontrado: %s",nombres[BuscarNombre(nombres,palabra)]);
+        printf("\nNombre encontrado: %s",nombres[BuscarNombrePorPalabra(nombres,palabra)]);
     }else
     {
-        printf("\nNo se encontraron nombres similares");
+        printf("No se encontraron nombres");
     }
     
     LiberarMemoria(nombres);

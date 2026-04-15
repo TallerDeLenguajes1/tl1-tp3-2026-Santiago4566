@@ -1,7 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
+void BuscarNombre(char *nombre[])
+{
+    int id;
+    printf("\nIngrese una ID para buscar");
+    scanf("%d",&id);
+    if (id<1 || id >5)
+    {
+        printf("No se encontró el valor buscado");
+    }else
+    {
+     printf("\nNombre encontrado: %s",nombre[id-1]);   
+    }
+    
+}
 void MostrarPersonas(char *nombres[])
 {
     for (int i = 0; i < 5; i++)
@@ -31,5 +44,6 @@ int main()
         strcpy(nombres[i],buff);
     }
     MostrarPersonas(nombres);
+    BuscarNombre(nombres);
     LiberarMemoria(nombres);
 }

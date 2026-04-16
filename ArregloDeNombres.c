@@ -75,7 +75,6 @@ void LiberarMemoria(char *nombres[])
     {
         free(nombres[i]);
     }
-    
 }
 int main()
 {
